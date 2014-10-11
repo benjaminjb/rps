@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors FIGHT!</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/css/normalize.css">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/css/foundation.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/css/main.css">
+</head>
+
+<body>
+
+<div class="header row">
+	<div class="large-8 columns">
+		<h1><strong>Rock</strong> <em>Paper</em> <u>Scissors</u></h1>
+	</div>
+
+	<div class="large-4 columns">
+  	<% if defined?(@player_logged_in) %>
+			<a href="/@player_logged_in.id"><h1><%=@player_logged_in["username"] %>'s homepage</h1></a>
+		<% end %>
+	</div>
+</div>
+
+<div class="large-3 push-9 columns sidebar">
+
+<% if defined?(@player_logged_in) %>
+	<div>Welcome <%=@player_logged_in["username"] %></div>
+<% end %>
+
+<% if defined?(game_list) %>
+	<form action='/game/:game_id' method='post'>
+	<div>	<label for='choose_game'>What match would you like to play?</label> </div>
+	<div>   
+		<select name='choose_game'>
+			<% game_list.each do |game| %>
+				<option value= <% "#{game.id}" %> > 
+				<%="#{game.player1_id.username} vs. #{game.player2_id.username}" %> </option>
+			<% end %>
+		</select>
+	</div>
+	<div><input type='submit' name="play_game" value='FIGHT!'></div>
+	</form> 
+<% end %>
+
+<% if defined?(opponent_list) %>
+	<form action='/game/:opponent_id' method='post'>
+	<div>	<label for='new_game'>Who would you like to challenge?</label> </div>
+	<div>   
+		<select name='choose_opponent'>
+			<% opponent_list.each do |opponent| %>
+				<option value= <% "#{opponent.id}" %> > 
+				<%="#{opponent.username} beat you #{SOMETHING} times" %> </option>
+			<% end %>
+		</select>
+	</div>
+	<div><input type='submit' name="play_game" value='FIGHT!'></div>
+	</form>
+<% end %> 
+
+	<div><a href='/player_stats/'>Your stats</a></div>
+
+	<div><a href='/signout'>Sign Out</a></div>
+</div>
+
+<div class="large-9 push-3 columns game_window">
+
+  <%= yield %>
+
+</div> 
+
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/logic/rps_logic.js"></script>
+
+</body>
+</html>
+
+
+
+

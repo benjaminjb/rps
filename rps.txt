@@ -1,0 +1,39 @@
+# RPS logic 
+
+# player 1 and 2 choose their attacks
+# flash countdown and fight! (enable/disable that function)
+# the match waits until both have entered their choices
+# a winner is chosen
+# the database is updated
+
+# compare choice
+# choice by button or key, slide animate to move
+
+# rock loses paper, rock beats scissors
+# paper beats rock, loses scissors
+# scissors loses rock, beats paper
+
+# beats = {
+#   :scissors => :rock,
+#   :paper => :scissors,
+#   :rock => :paper
+# }
+
+# if p1_move == beats[p2_move]
+#   "p1 wins"
+# elsif p2_move == beats[p1_move]
+#   "p2 wins"
+# else
+#   "tie"
+# end
+
+
+<!-- How do you sign in or sign out? -->
+	<!-- a dropdown menu of games currently played, with submit button -->
+
+		<!-- a dropdown list of other players to challenge, ordered by most challenges, with submit button -->
+
+	<!-- <% else %> -->
+	<!-- <div><a href='/'>Sign In</a></div> -->
+	<!-- <div><a href='/sign_up'>Create Profile</a></div> -->
+<!-- <%= yield_content :rightmost %> -->

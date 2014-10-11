@@ -1,0 +1,17 @@
+<div class="large-2 columns">
+
+<div class="large-8 columns">
+<% if defined?(player_logged_in) %>
+	<% finished_game_list.each do |game_finished| %>
+	<ul>
+  	<li><%= game_finished.winner %> won! </li>
+	<!-- get finished games, ordered by descending order of updated -->
+	</ul>
+	<% end %>
+
+<% else %>	
+	<div>
+	Would you like to play the deadliest game?
+	</div>
+<% end %>
+<div class="large-2 columns">

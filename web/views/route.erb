@@ -1,0 +1,33 @@
+<!-- @route =  { 0 => [Address1-Address2, distance], 1=> [Address2-Address3, distance]}-->
+
+<div class="row">
+	<div class="large-12 columns">
+		<% if mode == 1%>
+			<h4>Your walking directions:</h4>
+		<% else %>
+			<h4>Your driving directions:</h4>
+		<% end %>
+		<ul>
+			<% regex = /^(.*)\s\d+,\s\w+$/%>
+			<% points.each do |k, v| %>
+				<% location = v.split(':')%>
+				<% new_loc = regex.match(location.first)[1] %>
+				<li class="accordion_down"><%= "#{k}. " + names[k-1].split(' ').map(&:capitalize).join(' ') + '- ' + new_loc %></li>
+				<ol  class="accordion_up">
+				<% directions[k-1].each do |step| %>
+				<li><%= step %></li>
+				<% end %>
+				</ol>
+				<ul>
+					<li><em><%= location.last%></em> <%=" to next destination"%> </li>
+				</ul>
+			<% end %>
+
+		</ul>
+
+		<p> <%=  'End at ' + end_dest.first.split(' ').map(&:capitalize).join(' ')%> </p>
+	</div>
+	<!-- <div class="large-6 columns">
+	</div> -->
+</div>
+

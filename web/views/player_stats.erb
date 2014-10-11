@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Favorite Move</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% every_player.each do |player| %>
+    <tr>
+      <td><%= player.name %></td>
+      <td><%= player.wins %></td>
+      <td><%= player.losses %></td>
+      <td><%= player.favorite %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

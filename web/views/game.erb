@@ -1,0 +1,35 @@
+<div class="header">
+  <div class="large-3 columns">
+    <div>Player <%= rounds.keys[0] %></div>
+    <% rounds[rounds.keys[0]].each do |round| %>
+      <div> <%= round %> </div>
+    <% end %>
+
+  </div>
+  
+  <div class="large-6 columns"></div>
+  
+  <div class="large-3 columns">
+    <div>Player <%= rounds.keys[1] %></div>
+    <% rounds[rounds.keys[1]].each do |round| %>
+      <div> <%= round %> </div>
+    <% end %>
+    </div>
+</div>
+
+<div class="body large-12 columns">
+  <form action='/play' method='post'>
+  <div class="large-3 columns">
+    <ul>
+      <li class="clickable">Rock</li>
+      <li class="clickable">Paper</li>
+      <li class="clickable">Scissors</li>
+    </ul>
+  </div>
+  
+  <div class="large-9 columns">  
+      <img class="choice" />
+      <button type='submit' name='fight' value='Lock In'></button>
+  </div>
+  </form> 
+</div>
